@@ -95,9 +95,40 @@ addEventListener(`DOMContentLoaded`, () => {
             });
             
         } catch (error) {
-            console.error(`Erro ao carregar produtos: ${error}`);
+            console.Error(`Erro ao carregar produtos: ${error}`);
         }
     }
     //mudarMoeda();
     iniciarProdutos();
+
+
+    const selecaoForm = document.getElementById('form')
+    selecaoForm.addEventListener('submit', (evento)=>{
+        evento.preventDefault();
+        const nomeProduto = document.getElementById('nomeProduto')
+        const precoProduto = document.getElementById('precoProduto')
+        const dataProduto = document.getElementById('dataProduto')
+
+        if(!nomeProduto || !precoProduto || !dataProduto)
+        {
+            console.error('Elemento do formulario nao encontrado')
+            return;
+        }
+        console.log(dataProduto.value)
+       /**
+        * @param{string} funcao recebe a data modelo YY/MM/DD
+        * @returns{string} retorna a data no modelo DD/MM/YY
+        */
+        var dataCerta = dataProduto.value
+        function arrumarData(dataCerta)
+        {
+            if(!dataCerta){
+                console.error('Data invalida')
+                return;
+            }
+            const partesData = dataCerta.split('-');
+
+        }
+
+    })
 })
