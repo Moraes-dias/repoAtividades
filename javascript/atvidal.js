@@ -1,6 +1,6 @@
 class produtos
 {
-    constructor(id = 0, Nome = `padrao`, Preco = 1.5, DataCriado = `data`) 
+    constructor(id = 0, Nome = `padrao`, Preco = 1.5, DataCriado = `data`)
     {
         this.id = id
         this.Nome = Nome
@@ -9,11 +9,11 @@ class produtos
     }
 }
 const urlAPI = 'https://690e6cc8bd0fefc30a046f55.mockapi.io/prod/atividade/produtos'
-var produto1 = new produtos(1, `Camisa`, 29.99, '2023-01-15')
+var produto1 = new produtos(3, `Cueca`, 99.99, '2024-03-18')
 
-var produto2 = new produtos(2, `Calça`, 59.99, '2023-02-20')
+var produto2 = new produtos(4, `Meia`, 20.99, '2006-08-01')
 
-var produto3 = new produtos(3, `Tênis`, 89.99, '2023-03-10')
+var produto3 = new produtos(5, `Chapeu`, 50.50, '2024-01-30')
 
 function transformarParaJSON(produto) {
     return{
@@ -34,7 +34,7 @@ async function atualizarAPI(produto) {
             const produtoAtualizado = await resposta.json()
             console.log(`Produto atualizado: ${JSON.stringify(produtoAtualizado)}`)
         } else {
-            console.error(`Falha na requisicao PUT: ${resposta.status} - ${resposta.statusText}`)
+            console.error(`Falha na requisicao POST: ${resposta.status} - ${resposta.statusText}`)
         }
     } catch (error) {
         console.error(`Erro na atualizacao do produto: ${error}`)
